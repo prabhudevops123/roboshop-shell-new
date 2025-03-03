@@ -1,5 +1,7 @@
 echo -e "\e[33mConfiguring NodeJS\e[0m"
-curl -sL https://rpm.nodesource.com/setup_1ts.x | bash &>>/tmp/roboshop.log
+#curl -sL https://rpm.nodesource.com/setup_1ts.x | bash &>>/tmp/roboshop.log
+yum module disable nodejs -y
+yum module enable nodejs:18 -y
 
 echo -e "\e[33mInstall NodeJS\e[0m"
 yum install nodejs -y &>>/tmp/roboshop.log
