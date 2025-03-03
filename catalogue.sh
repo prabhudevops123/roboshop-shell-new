@@ -10,11 +10,11 @@ echo -e "\e[33mAdd App user\e[0m"
 useradd roboshop &>>/tmp/roboshop.log
 
 echo -e "\e[33mCreate App directory\e[0m"
-#rm -rf /app &>>/tmp/roboshop.log
+rm -rf /app &>>/tmp/roboshop.log
 mkdir /app &>>/tmp/roboshop.log
 
 echo -e "\e[33mDownload App content\e[0m"
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip #&>>/tmp/roboshop.log
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mExtract App Content\e[0m"
@@ -22,7 +22,7 @@ unzip /tmp/catalogue.zip #&>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mInstall NodeJS dependencies\e[0m"
-npm install #&>>/tmp/roboshop.log
+npm install &>>/tmp/roboshop.log
 
 echo -e "\e[33mSetup systemd service\e[0m"
 cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service &>>/tmp/roboshop.log
