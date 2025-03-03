@@ -1,7 +1,7 @@
 echo -e "\e[33mConfiguring NodeJS\e[0m"
 #curl -sL https://rpm.nodesource.com/setup_1ts.x | bash &>>/tmp/roboshop.log
-yum module disable nodejs -y
-yum module enable nodejs:18 -y
+yum module disable nodejs -y &>>/tmp/roboshop.log
+yum module enable nodejs:18 -y &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstall NodeJS\e[0m"
 yum install nodejs -y &>>/tmp/roboshop.log
@@ -18,7 +18,7 @@ curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue
 cd /app
 
 echo -e "\e[33mExtract App Content\e[0m"
-unzip /tmp/catalogue.zip #&>>/tmp/roboshop.log
+unzip /tmp/catalogue.zip &>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mInstall NodeJS dependencies\e[0m"
