@@ -1,6 +1,5 @@
-echo -e "\e[33mInstalling Nginx Server\e[0m"
-dnf module disable nodejs -y &>>/tmp/roboshop.log
-dnf module enable nodejs:18 -y &>>/tmp/roboshop.log
+echo -e "\e[33mConfiguring NodeJS\e[0m"
+curl -sL https://rpm.nodesource.com/setup_1ts.x | bash &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstall NodeJS\e[0m"
 dnf install nodejs -y &>>/tmp/roboshop.log
