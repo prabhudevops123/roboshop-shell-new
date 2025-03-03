@@ -1,41 +1,41 @@
 echo -e "\e[33mConfiguring NodeJS\e[0m"
 #curl -sL https://rpm.nodesource.com/setup_1ts.x | bash &>>/tmp/roboshop.log
-yum module disable nodejs -y &>>/tmp/roboshop.log
-yum module enable nodejs:18 -y &>>/tmp/roboshop.log
+yum module disable nodejs -y #&>>/tmp/roboshop.log
+yum module enable nodejs:18 -y #&>>/tmp/roboshop.log
 
 echo -e "\e[33mInstall NodeJS\e[0m"
-yum install nodejs -y &>>/tmp/roboshop.log
+yum install nodejs -y #&>>/tmp/roboshop.log
 
 echo -e "\e[33mAdd App user\e[0m"
-useradd roboshop &>>/tmp/roboshop.log
+useradd roboshop #&>>/tmp/roboshop.log
 
 echo -e "\e[33mCreate App directory\e[0m"
-rm -rf /app &>>/tmp/roboshop.log
-mkdir /app &>>/tmp/roboshop.log
+rm -rf /app #&>>/tmp/roboshop.log
+mkdir /app #&>>/tmp/roboshop.log
 
 echo -e "\e[33mDownload App content\e[0m"
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>/tmp/roboshop.log
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip #&>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mExtract App Content\e[0m"
-unzip /tmp/catalogue.zip &>>/tmp/roboshop.log
+unzip /tmp/catalogue.zip #&>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mInstall NodeJS dependencies\e[0m"
-npm install &>>/tmp/roboshop.log
+npm install #&>>/tmp/roboshop.log
 
 echo -e "\e[33mSetup systemd service\e[0m"
-cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service &>>/tmp/roboshop.log
+cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service #&>>/tmp/roboshop.log
 
 echo -e "\e[33mStart Catalogue service\e[0m"
-systemctl daemon-reload &>>/tmp/roboshop.log
-systemctl enable catalogue &>>/tmp/roboshop.log
-systemctl start catalogue  &>>/tmp/roboshop.log
+systemctl daemon-reload #&>>/tmp/roboshop.log
+systemctl enable catalogue #&>>/tmp/roboshop.log
+systemctl start catalogue  #&>>/tmp/roboshop.log
 echo -e "\e[33mCopy mongoDB repo file\e[0m"
-cp /home/centos/roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>/tmp/roboshop.log
+cp /home/centos/roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongodb.repo #&>>/tmp/roboshop.log
 
 echo -e "\e[33mInstalli mongoDB client\e[0m"
-dnf install mongodb-org-shell -y &>>/tmp/roboshop.log
+dnf install mongodb-org-shell -y #&>>/tmp/roboshop.log
 
 echo -e "\e[33mLoad Schema\e[0m"
 mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
