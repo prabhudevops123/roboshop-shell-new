@@ -2,7 +2,7 @@ echo -e "\e[33mConfiguring NodeJS\e[0m"
 curl -sL https://rpm.nodesource.com/setup_1ts.x | bash &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstall NodeJS\e[0m"
-dnf install nodejs -y &>>/tmp/roboshop.log
+yum install nodejs -y &>>/tmp/roboshop.log
 
 echo -e "\e[33Add App user\e[0m"
 useradd roboshop &>>/tmp/roboshop.log
