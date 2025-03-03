@@ -2,7 +2,7 @@ echo -e "\e[33mConfiguring NodeJS\e[0m"
 curl -sL https://rpm.nodesource.com/setup_1ts.x | bash &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstall NodeJS\e[0m"
-yum install nodejs -y #&>>/tmp/roboshop.log
+yum install nodejs -y &>>/tmp/roboshop.log
 
 echo -e "\e[33mAdd App user\e[0m"
 useradd roboshop &>>/tmp/roboshop.log
@@ -20,7 +20,7 @@ unzip /tmp/catalogue.zip &>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mInstall NodeJS dependencies\e[0m"
-npm install &>>/tmp/roboshop.log
+npm install #&>>/tmp/roboshop.log
 
 echo -e "\e[33mSetup systemd service\e[0m"
 cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service &>>/tmp/roboshop.log
