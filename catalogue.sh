@@ -22,7 +22,7 @@ unzip /tmp/catalogue.zip #&>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mInstall NodeJS dependencies\e[0m"
-npm install #&>>/tmp/roboshop.log
+npm install -g npm@11.1.0 #&>>/tmp/roboshop.log
 
 echo -e "\e[33mSetup systemd service\e[0m"
 cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service #&>>/tmp/roboshop.log
