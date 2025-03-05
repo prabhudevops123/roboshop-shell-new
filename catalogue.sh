@@ -27,15 +27,15 @@ echo -e "\e[33mInstall NodeJS dependencies\e[0m"
 npm install #&>>/tmp/roboshop.log
 
 echo -e "\e[33mSetup systemd service\e[0m"
-#cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service #&>>/tmp/roboshop.log
-cp $pwd/$component.service /etc/systemd/system/$component.service
+cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service #&>>/tmp/roboshop.log
+#cp $pwd/$component.service /etc/systemd/system/$component.service
 
 echo -e "\e[33mStart Catalogue service\e[0m"
 systemctl daemon-reload #&>>/tmp/roboshop.log
-#systemctl enable catalogue #&>>/tmp/roboshop.log
-systemctl enable $component
-#systemctl start catalogue  #&>>/tmp/roboshop.log
-systemctl restart $component
+systemctl enable catalogue #&>>/tmp/roboshop.log
+#systemctl enable $component
+systemctl start catalogue  #&>>/tmp/roboshop.log
+#systemctl restart $component
 
 echo -e "\e[33mCopy mongoDB repo file\e[0m"
 cp /home/centos/roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongodb.repo #&>>/tmp/roboshop.log
@@ -45,6 +45,6 @@ echo -e "\e[33mInstalli mongoDB client\e[0m"
 dnf install mongodb-mongosh -y
 
 echo -e "\e[33mLoad Schema\e[0m"
-#mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
-mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
+mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
+#mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
 
