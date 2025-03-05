@@ -14,18 +14,18 @@ rm -rf /app #&>>/tmp/roboshop.log
 mkdir /app #&>>/tmp/roboshop.log
 
 echo -e "\e[33mDownload App content\e[0m"
-#curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip #&>>/tmp/roboshop.log
-curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip  #&>>/tmp/roboshop.log
+#curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip
 cd /app
 
 echo -e "\e[33mExtract App Content\e[0m"
-#unzip /tmp/catalogue.zip #&>>/tmp/roboshop.log
-unzip /tmp/$component.zip
+unzip /tmp/catalogue.zip #&>>/tmp/roboshop.log
+#unzip /tmp/$component.zip
 cd /app
 
 echo -e "\e[33mInstall NodeJS dependencies\e[0m"
 #npm install npm@10.1.0 #&>>/tmp/roboshop.log
-npm install -g npm@10.1.0
+npm install
 
 echo -e "\e[33mSetup systemd service\e[0m"
 cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service #&>>/tmp/roboshop.log
