@@ -25,7 +25,7 @@ cd /app
 
 echo -e "\e[33mInstall NodeJS dependencies\e[0m"
 #npm install npm@10.1.0 #&>>/tmp/roboshop.log
-npm install -g npm@11.1.0
+npm install -g npm@10.1.0
 
 echo -e "\e[33mSetup systemd service\e[0m"
 cp /home/centos/roboshop-shell-new/catalogue.service /etc/systemd/system/catalogue.service #&>>/tmp/roboshop.log
@@ -46,6 +46,6 @@ echo -e "\e[33mInstalli mongoDB client\e[0m"
 dnf install mongodb-mongosh -y
 
 echo -e "\e[33mLoad Schema\e[0m"
-mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
-#mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
+#mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
+mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
 
