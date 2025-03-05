@@ -1,3 +1,19 @@
+dnf module disable nginx -y
+dnf module enable nginx:1.24 -y
+dnf install nginx -y
+
+rm -rf /usr/share/nginx/html/*
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+cd /usr/share/nginx/html
+unzip /tmp/frontend.zip
+
+# need to copy config file
+
+systemctl enable nginx
+systemctl restart nginx
+
+
+
 ##echo -e "${color} Installing Nginx Server ${nocolor}"
 #echo -e "\e[33mInstalling Nginx Server\e[0m"
 #yum install nginx -y &>>/tmp/roboshop.log
@@ -19,16 +35,16 @@
 #systemctl enable nginx &>>/tmp/roboshop.log
 #systemctl restart nginx &>>/tmp/roboshop.log
 
-yum install nginx -y
-
-rm -rf /usr/share/nginx/html/*
-
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
-
-cd /usr/share/nginx/html
-unzip /tmp/frontend.zip
-
-# we need to copy config file
-
-systemctl enable nginx
-systemctl restart nginx
+#yum install nginx -y
+#
+#rm -rf /usr/share/nginx/html/*
+#
+#curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+#
+#cd /usr/share/nginx/html
+#unzip /tmp/frontend.zip
+#
+## we need to copy config file
+#
+#systemctl enable nginx
+#systemctl restart nginx
