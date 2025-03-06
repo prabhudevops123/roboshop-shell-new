@@ -36,7 +36,7 @@ echo -e "\e[33mCopy mongoDB repo file\e[0m"
 cp /home/centos /roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongo.repo &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstalli mongoDB client\e[0m"
-dnf install mongodb-org-shell -y #&>>/tmp/roboshop.log
+dnf install mongod-org-shell -y #&>>/tmp/roboshop.log
 #dnf install mongodb-mongosh -y
 
 echo -e "\e[33mLoad Schema\e[0m"
