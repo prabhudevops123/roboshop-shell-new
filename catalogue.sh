@@ -36,10 +36,10 @@ echo -e "\e[33mCopy mongoDB repo file\e[0m"
 cp /home/ec2-user/roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstalli mongoDB client\e[0m"
-#dnf install mongodb-org-shell -y &>>/tmp/roboshop.log
-dnf install mongodb-mongosh -y
+dnf install mongodb-org-shell -y #&>>/tmp/roboshop.log
+#dnf install mongodb-mongosh -y
 
 echo -e "\e[33mLoad Schema\e[0m"
-#mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
-mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
+mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
+#mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
 
