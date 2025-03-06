@@ -6,7 +6,7 @@ dnf install nginx -y &>>/tmp/roboshop.log
 #cp nginx.conf /etc/nginx/nginx.conf
 echo -e "\e[33mStarting nginx server\e[0m"
 systemctl enable nginx &>>/tmp/roboshop.log
-systemctl restart nginx &>>/tmp/roboshop.log
+systemctl start nginx &>>/tmp/roboshop.log
 
 echo -e "\e[33mRemoving old app content\e[0m"
 rm -rf /usr/share/nginx/html/* &>>/tmp/roboshop.log
@@ -20,6 +20,8 @@ unzip /tmp/frontend.zip &>>/tmp/roboshop.log
 
 echo -e "\e[33mFrontend Configuration\e[0m"
 cp /home/centos/roboshop-shell-new/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
+
+systemctl restart nginx
 
 
 ##echo -e "${color} Installing Nginx Server ${nocolor}"
