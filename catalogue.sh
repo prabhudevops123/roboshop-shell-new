@@ -13,7 +13,7 @@ rm -rf /app &>>/tmp/roboshop.log
 mkdir /app &>>/tmp/roboshop.log
 
 echo -e "\e[33mDownload App content\e[0m"
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip  &>>/tmp/roboshop.log
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue  .zip  &>>/tmp/roboshop.log
 cd /app
 
 echo -e "\e[33mExtract App Content\e[0m"
@@ -33,13 +33,13 @@ systemctl enable catalogue &>>/tmp/roboshop.log
 systemctl start catalogue  &>>/tmp/roboshop.log
 
 echo -e "\e[33mCopy mongoDB repo file\e[0m"
-cp /home/centos/roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>/tmp/roboshop.log
+cp /home/centos /roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstalli mongoDB client\e[0m"
-#dnf install mongodb-org-shell -y #&>>/tmp/roboshop.log
-dnf install mongodb-mongosh -y
+dnf install mongodb-org-shell -y #&>>/tmp/roboshop.log
+#dnf install mongodb-mongosh -y
 
 echo -e "\e[33mLoad Schema\e[0m"
-#mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
-mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
+mongo --host mongodb-dev.prabhanjandevops.store </app/schema/catalogue.js #&>>/tmp/roboshop.log
+#mongosh --host mongodb-dev.prabhanjandevops.store </app/db/master-data.js
 
