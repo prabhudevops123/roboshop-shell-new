@@ -19,7 +19,7 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip &>>/tmp/roboshop.log
 
 echo -e "\e[33mFrontend Configuration\e[0m"
-cp /home/centos/roboshop-shell-new/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
+cp /home/ec2-user/roboshop-shell-new/nginx.conf /etc/nginx/nginx.conf &>>/tmp/roboshop.log
 
 systemctl restart nginx
 
