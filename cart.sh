@@ -14,7 +14,7 @@ rm -rf /app &>>/tmp/roboshop.log
 mkdir /app &>>/tmp/roboshop.log
 
 echo -e "\e[33mDownload App content\e[0m"
-curl -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip  &>>/tmp/roboshop.log
+curl -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart.zip  &>>/tmp/roboshop.log
 
 cd /app
 
@@ -26,7 +26,7 @@ echo -e "\e[33mInstall NodeJS dependencies\e[0m"
 npm install
 
 echo -e "\e[33mSetup systemd service\e[0m"
-cp /home/ec2-user/roboshop-shell-new/cart.service /etc/systemd/system/cart.service &>>/tmp/roboshop.log
+cp /home/centos/roboshop-shell-new/cart.service /etc/systemd/system/cart.service &>>/tmp/roboshop.log
 
 
 echo -e "\e[33mStart Cart service\e[0m"
