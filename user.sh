@@ -1,7 +1,7 @@
 echo -e "\e[33mConfiguring NodeJS\e[0m"
 
 dnf module disable nodejs -y &>>/tmp/roboshop.log
-dnf module enable nodejs:20 -y &>>/tmp/roboshop.log
+dnf module enable nodejs:18 -y &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstall NodeJS\e[0m"
 dnf install nodejs -y &>>/tmp/roboshop.log
@@ -14,7 +14,7 @@ rm -rf /app &>>/tmp/roboshop.log
 mkdir /app &>>/tmp/roboshop.log
 
 echo -e "\e[33mDownload App content\e[0m"
-curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip  &>>/tmp/roboshop.log
+curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip  &>>/tmp/roboshop.log
 
 cd /app
 
@@ -26,7 +26,7 @@ echo -e "\e[33mInstall NodeJS dependencies\e[0m"
 npm install
 
 echo -e "\e[33mSetup systemd service\e[0m"
-cp /home/ec2-user/roboshop-shell-new/user.service /etc/systemd/system/user.service &>>/tmp/roboshop.log
+cp /home/centos/roboshop-shell-new/user.service /etc/systemd/system/user.service &>>/tmp/roboshop.log
 
 
 echo -e "\e[33mStart user service\e[0m"
