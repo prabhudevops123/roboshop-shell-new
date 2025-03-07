@@ -1,6 +1,6 @@
 echo -e "\e[33m Enable Redis 6 version \e[0m"
 dnf module disable redis -y #&>>/tmp/roboshop.log
-dnf module enable redis:6.2 -y #&>>/tmp/roboshop.log
+dnf module enable redis:6 -y #&>>/tmp/roboshop.log
 
 echo -e "\e[33m Install Redis \e[0m"
 dnf install redis -y #&>>/tmp/roboshop.log
