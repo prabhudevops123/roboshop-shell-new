@@ -1,7 +1,7 @@
 echo -e "\e[33mConfiguring NodeJS\e[0m"
 
 dnf module disable nodejs -y &>>/tmp/roboshop.log
-dnf module enable nodejs:18 -y &>>/tmp/roboshop.log
+dnf module enable nodejs:20 -y &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstall NodeJS\e[0m"
 dnf install nodejs -y &>>/tmp/roboshop.log
