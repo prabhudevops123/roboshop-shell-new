@@ -1,5 +1,5 @@
 echo -e "\e[33mCopy mongo DB repo file\e[0m"
-cp /home/centos/roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongod.repo &>>/tmp/roboshop.log
+cp /home/centos/roboshop-shell-new/mongodb.repo /etc/yum.repos.d/mongo.repo &>>/tmp/roboshop.log
 
 echo -e "\e[33mInstalling MongoDB Server\e[0m"
 dnf install mongodb-org -y &>>/tmp/roboshop.log
@@ -9,6 +9,6 @@ systemctl enable mongod &>>/tmp/roboshop.log
 systemctl restart mongod &>>/tmp/roboshop.log
 
 echo -e "\e[33mUpdate mongodb listen address\e[0m"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongo.repo
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 
 
