@@ -2,8 +2,8 @@ echo -e "\e[33mInstalling Nginx Server\e[0m"
 yum install nginx -y #&>>/tmp/roboshop.log
 
 echo -e "\e[33mStarting nginx server\e[0m"
-  systemctl enable nginx #&>>/tmp/roboshop.log
-systemctl rstart nginx #&>>/tmp/roboshop.log
+systemctl enable nginx #&>>/tmp/roboshop.log
+systemctl start nginx #&>>/tmp/roboshop.log
 
 echo -e "\e[33mRemoving old app content\e[0m"
 rm -rf /usr/share/nginx/html/* #&>>/tmp/roboshop.log
