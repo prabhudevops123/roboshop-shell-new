@@ -20,7 +20,7 @@ cp /home/centos/roboshop-shell-new/roboshop.conf /etc/nginx/default.d/roboshop.c
 echo -e "\e[33mRestarting nginx\e[0m"
 systemctl restart nginx &>>/tmp/roboshop.log
 
-# we need to copy config file
+
 
 
 #echo -e "\e[33mInstalling Nginx Server\e[0m"
